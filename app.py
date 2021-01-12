@@ -41,13 +41,14 @@ def main():
         if 'ROC Curve' in metrics_list:
             st.subheader("ROC Curve")
             fig, ax = plt.subplots()
-            plot_roc_curve(model, x_test, y_test)
-            st.pyplot()
+            plot_roc_curve(model, x_test, y_test, ax=ax)
+            st.pyplot(fig)
         
         if 'Precision-Recall Curve' in metrics_list:
             st.subheader('Precision-Recall Curve')
-            plot_precision_recall_curve(model, x_test, y_test)
-            st.pyplot()
+            fig, ax = plt.subplots()
+            plot_precision_recall_curve(model, x_test, y_test, ax=ax)
+            st.pyplot(fig)
 
     df = load_data()
     class_names = ['edible', 'poisonous']
